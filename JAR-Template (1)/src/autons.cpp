@@ -129,9 +129,7 @@ void holonomic_odom_test(){
 }
 
 void RedRight(){
-//drive to pose tuning(should i use drve to point and turn to angle)
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
-  //should i use heading or turning constants
   chassis.set_coordinates(0,0,0);
   chassis.drive_to_pose(0,24,90);
 
@@ -139,22 +137,22 @@ void RedRight(){
   chassis.set_drive_constants(10, 1.5, 0, 10, 0);
   chassis.set_coordinates(12, -46, 22);
   chassis.drive_to_pose(21,-28,22);
-  Intake.spin(reverse, 13, voltageUnits::volt);//might be forward
-  TopRoller.spin(reverse, 5, voltageUnits::volt);//might be forward
+  Intake.spin(reverse, 13, voltageUnits::volt);
+  TopRoller.spin(reverse, 5, voltageUnits::volt);
   wait(2, sec);
   chassis.drive_to_pose(13,-17,315);
-  IntakeLift.set(true);// it might be false
-  Intake.spin(forward, 13, volt);//might be reverse
-  TopRoller.spin(forward, 13, volt)//might be reverse
+  IntakeLift.set(true);
+  Intake.spin(forward, 13, volt);
+  TopRoller.spin(forward, 13, volt);
   wait(1, sec);
   drive_to_pose(48,-48,180);
   Tongue.set(true);
   drive_to_pose(, 48,-53,180);
-  Intake.spin(reverse, 13, voltageUnits::volt);//might be forward
-  TopRoller.spin(reverse, 5, voltageUnits::volt);//might be forward
+  Intake.spin(reverse, 13, voltageUnits::volt);
+  TopRoller.spin(reverse, 5, voltageUnits::volt);
   drive_to_pose(48,-30, 180);
-  Intake.spin(reverse, 13, voltageUnits::volt);//might be forward
-  TopRoller.spin(reverse, 13, voltageUnits::volt);//might be forward
+  Intake.spin(reverse, 13, voltageUnits::volt);
+  TopRoller.spin(reverse, 13, voltageUnits::volt);
   //push balls in with descore mech
 
 */
@@ -162,7 +160,7 @@ void RedRight(){
 
 /*drive_distance code
   chassis.set_drive_constants(12, 2.5, 0, 10, 0);
-  chassis.set_coordinates(12, -48, 30);//use brain display and inertial to figure out
+  chassis.set_coordinates(12, -48, 30);
   chassis.drive_distance(27.5);
   wait(3, sec);
   chassis.turn_to_angle(315);
@@ -174,4 +172,5 @@ void RedRight(){
   wait(3, sec);
   chassis.drive_distance(-22.5);
 */
+
 }
