@@ -175,7 +175,8 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      drive_test();
+     RedRight();
+    //drive_test();
       break;
     case 1:         
       drive_test();

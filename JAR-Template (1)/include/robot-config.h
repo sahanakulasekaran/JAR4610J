@@ -20,5 +20,9 @@ extern motor TopRoller;
 
 extern inertial Inert;
 
+extern digital_out Tongue;
+extern digital_out IntakeLift;
+extern digital_out RearLift;
+
 
 void  vexcodeInit( void );
