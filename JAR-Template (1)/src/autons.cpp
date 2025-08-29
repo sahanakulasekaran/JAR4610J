@@ -163,22 +163,70 @@ void RedRight(){
   //push balls in with descore mech
 
 */
+
+//drive_distance code 2
+  chassis.set_drive_constants(12, 2.5, 0, 10, 0);
+  chassis.set_turn_constants(12, .4, .03, 3, 15);
+  Inert.calibrate();
+  wait(3, sec);
+  chassis.set_coordinates(12, -46,40);
+  chassis.drive_distance(8);
+  chassis.turn_to_angle(0);
+  Intake.spin(forward, 13, volt);
+  TopRoller.spin(forward, 5, volt);
+  chassis.drive_distance(11);
+  wait(500, msec);
+  chassis.drive_distance(2);
+  wait(500, msec);
+  //turn ot middle goal
+  chassis.turn_to_angle(315);
+  chassis.drive_distance(23);
+  IntakeLift.set(true);
+  Intake.spin(reverse, 13, volt);
+  TopRoller.spin(reverse, 13,volt);
+  wait(2,sec);
+  Intake.stop();
+  TopRoller.stop();
+  IntakeLift.set(false);
+  //drive backwards to center for loader
+  chassis.drive_distance(-57.5);
+  //turn around to loader
+  chassis.turn_to_angle(180);
+ //turn to lower goal
+  Tongue.set(true);
+  chassis.drive_distance(5);
+  Intake.spin(forward, 13, volt);//maybe spin before driving forward
+  TopRoller.spin(forward, 5, volt);
+  wait(2, sec);
+  Intake.stop();
+  TopRoller.stop();
+  //back up to upper goal
+  chassis.drive_distance(-22.5);
+  RearLift.set(true);
+  Intake.spin(forward, 13, volt);
+  TopRoller.spin(forward,13, volt);
+  wait(3, sec);
+  //push balls back with descore mech
+
+/*
 //drive_distance code
     chassis.set_drive_constants(12, 2.5, 0, 10, 0);
     chassis.set_turn_constants(12, .4, .03, 3, 15);
+    Inert.calibrate();
+    wait(3, sec);
     chassis.set_coordinates(12, -46,22);//use brain display and inertial to figure out
    //drive forward first block w intake on
     Intake.spin(forward, 13, volt);
     TopRoller.spin(forward, 5, volt);
-    chassis.drive_distance(18);
-    wait(500, msec);
+    chassis.drive_distance(16);
+    wait(300,msec);
     chassis.drive_distance(-4);
     chassis.turn_to_angle(0);
-    chassis.drive_distance(7.5);
-    wait(500, msec);
+    chassis.drive_distance(9.5);
+    wait(500,msec);
     Intake.stop();
     TopRoller.stop();
-    /*
+    
     //turn to lower middle goal
     chassis.turn_to_angle(315);
     chassis.drive_distance(23);
@@ -209,4 +257,5 @@ void RedRight(){
     wait(3, sec);
     //push balls back with descore mech
   */
+
 }
