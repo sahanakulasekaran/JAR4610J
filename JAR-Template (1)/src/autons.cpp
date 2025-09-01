@@ -41,10 +41,16 @@ void odom_constants(){
  */
 
 void drive_test(){
+  Inert.calibrate();
+  wait(3, sec);
+  chassis.set_drive_constants(12, 2.5, 0, 10, 0);
+  chassis.drive_distance(24);
+  /*
   chassis.drive_distance(6);
   chassis.drive_distance(12);
   chassis.drive_distance(18);
   chassis.drive_distance(-36);
+  */
 }
 
 /**
@@ -52,11 +58,14 @@ void drive_test(){
  */
 
 void turn_test(){
+ chassis.turn_to_angle(90);
+
+  /*
   chassis.turn_to_angle(5);
   chassis.turn_to_angle(30);
   chassis.turn_to_angle(90);
   chassis.turn_to_angle(225);
-  chassis.turn_to_angle(0);
+  chassis.turn_to_angle(0);*/
 }
 
 /**
@@ -169,8 +178,28 @@ void RedRight(){
   chassis.set_turn_constants(12, .4, .03, 3, 15);
   Inert.calibrate();
   wait(3, sec);
-  chassis.set_coordinates(12, -46,40);
-  chassis.drive_distance(8);
+  //do this right before the balls
+  chassis.set_coordinates(12, -46,15);//use brain display and inertial to figure out
+  Intake.spin(forward, 13, volt);
+  TopRoller.spin(forward, 5, volt);
+  chassis.set_drive_constants(6, 2.5, 0, 10, 0);
+  chassis.drive_distance(24);
+  wait(500,msec);
+  Intake.stop();
+  TopRoller.stop();
+  chassis.set_drive_constants(12, 2.5, 0, 10, 0);
+  chassis.drive_distance(3.75);
+  chassis.turn_to_angle(315);
+  /*chassis.drive_distance(23);
+  IntakeLift.set(true);
+  Intake.spin(reverse, 13, volt);
+  TopRoller.spin(reverse, 13,volt);
+  wait(2,sec);
+  Intake.stop();
+  TopRoller.stop();
+  IntakeLift.set(false);  
+  */
+/*
   chassis.turn_to_angle(0);
   Intake.spin(forward, 13, volt);
   TopRoller.spin(forward, 5, volt);
@@ -207,7 +236,7 @@ void RedRight(){
   TopRoller.spin(forward,13, volt);
   wait(3, sec);
   //push balls back with descore mech
-
+*/
 /*
 //drive_distance code
     chassis.set_drive_constants(12, 2.5, 0, 10, 0);

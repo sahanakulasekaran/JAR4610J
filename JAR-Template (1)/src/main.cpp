@@ -53,16 +53,16 @@ motor_group(Right1, Right2, Right3),
 PORT17,
 
 //Input your wheel diameter. (4" omnis are actually closer to 4.125"):
-3.25,
+2.75,
 
 //External ratio, must be in decimal, in the format of input teeth/output teeth.
 //If your motor has an 84-tooth gear and your wheel has a 60-tooth gear, this value will be 1.4.
 //If the motor drives the wheel directly, this value is 1:
-0.75,
+0.8,
 
 //Gyro scale, this is what your gyro reads when you spin the robot 360 degrees.
 //For most cases 360 will do fine here, but this scale factor can be very helpful when precision is necessary.
-360,
+360,//maybe make negative
 
 /*---------------------------------------------------------------------------*/
 /*                                  PAUSE!                                   */
@@ -175,8 +175,8 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-     RedRight();
-    //drive_test();
+    RedRight();
+  //drive_test();
       break;
     case 1:         
       drive_test();
