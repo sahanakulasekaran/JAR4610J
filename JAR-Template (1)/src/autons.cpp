@@ -138,105 +138,55 @@ void holonomic_odom_test(){
 }
 
 void RedRight(){
-
-
-/*drive to pose tuning(shoud i use drve to point and turn to angle)
-  Inert.calibrate();
-  wait(3, sec);
-  chassis.set_drive_constants(10, 1.5, 0, 10, 0);
-  chassis.set_turn_constants(12, .1,.03, 3,15);
-  chassis.set_coordinates(0,0,0);
-  chassis.drive_to_pose(0,24, 90);
-*/
-
-/*drive_to_pose code - check all these #'s
-  chassis.set_drive_constants(10, 1.5, 0, 10, 0);
-  chassis.set_coordinates(12, -46, 22);
-  chassis.drive_to_pose(21,-28,22);
-  Intake.spin(reverse, 13, voltageUnits::volt);//might be forward
-  TopRoller.spin(reverse, 5, voltageUnits::volt);//might be forward
-  wait(2, sec);
-  chassis.drive_to_pose(13,-17,315);
-  IntakeLift.set(true);// it might be false
-  Intake.spin(forward, 13, volt);//might be reverse
-  TopRoller.spin(forward, 13, volt)//might be reverse
-  wait(1, sec);
-  drive_to_pose(48,-48,180);
-  Tongue.set(true);
-  drive_to_pose(, 48,-53,180);
-  Intake.spin(reverse, 13, voltageUnits::volt);//might be forward
-  TopRoller.spin(reverse, 5, voltageUnits::volt);//might be forward
-  drive_to_pose(48,-30, 180);
-  Intake.spin(reverse, 13, voltageUnits::volt);//might be forward
-  TopRoller.spin(reverse, 13, voltageUnits::volt);//might be forward
-  //push balls in with descore mech
-
-*/
-
-//drive_distance code 2
+  //42 degree angle starting
+  //set constants, coordinates, and calibrate
   chassis.set_drive_constants(12, 2.5, 0, 10, 0);
   chassis.set_turn_constants(12, .4, .03, 3, 15);
-  Inert.calibrate();
-  wait(3, sec);
-  //do this right before the balls
-  chassis.set_coordinates(12, -46,15);//use brain display and inertial to figure out
-  Intake.spin(forward, 13, volt);
+  //Inert.calibrate();
+  //wait(3, sec);
+  chassis.set_coordinates(12, -46,42);
+  //get balls in the middle
+  Intake.spin(forward, 13, volt);//can slow down intake instead of stopping
   TopRoller.spin(forward, 5, volt);
-  chassis.set_drive_constants(6, 2.5, 0, 10, 0);
-  chassis.drive_distance(24);
+  chassis.drive_distance(15);
+  wait(500,msec);
+  chassis.drive_distance(10.5, 23);
   wait(500,msec);
   Intake.stop();
   TopRoller.stop();
-  chassis.set_drive_constants(12, 2.5, 0, 10, 0);
-  chassis.drive_distance(3.75);
+  //turn to middle goal and score
   chassis.turn_to_angle(315);
-  /*chassis.drive_distance(23);
+  chassis.drive_distance(15);
   IntakeLift.set(true);
   Intake.spin(reverse, 13, volt);
   TopRoller.spin(reverse, 13,volt);
-  wait(2,sec);
-  Intake.stop();
-  TopRoller.stop();
-  IntakeLift.set(false);  
-  */
-/*
-  chassis.turn_to_angle(0);
-  Intake.spin(forward, 13, volt);
-  TopRoller.spin(forward, 5, volt);
-  chassis.drive_distance(11);
-  wait(500, msec);
-  chassis.drive_distance(2);
-  wait(500, msec);
-  //turn ot middle goal
-  chassis.turn_to_angle(315);
-  chassis.drive_distance(23);
-  IntakeLift.set(true);
-  Intake.spin(reverse, 13, volt);
-  TopRoller.spin(reverse, 13,volt);
-  wait(2,sec);
+  wait(650,msec);
   Intake.stop();
   TopRoller.stop();
   IntakeLift.set(false);
-  //drive backwards to center for loader
-  chassis.drive_distance(-57.5);
+  chassis.drive_distance(-53.5);
   //turn around to loader
   chassis.turn_to_angle(180);
- //turn to lower goal
+  // get balls from loader
   Tongue.set(true);
-  chassis.drive_distance(5);
-  Intake.spin(forward, 13, volt);//maybe spin before driving forward
+  wait(500,msec);
+  chassis.set_drive_constants(6, 2.5, 0, 10, 0);
+  chassis.drive_distance(8.5);
+  chassis.set_drive_constants(12, 2.5, 0, 10, 0);
+  Intake.spin(forward, 13, volt);
   TopRoller.spin(forward, 5, volt);
-  wait(2, sec);
+  wait(500, msec);
   Intake.stop();
   TopRoller.stop();
-  //back up to upper goal
-  chassis.drive_distance(-22.5);
+  chassis.drive_distance(-26.5);
   RearLift.set(true);
   Intake.spin(forward, 13, volt);
-  TopRoller.spin(forward,13, volt);
-  wait(3, sec);
-  //push balls back with descore mech
-*/
+  TopRoller.spin(forward, 13,volt);
+  wait(2,msec);
+  Intake.stop();
+  TopRoller.stop();
+
+
 /*
 //drive_distance code
     chassis.set_drive_constants(12, 2.5, 0, 10, 0);

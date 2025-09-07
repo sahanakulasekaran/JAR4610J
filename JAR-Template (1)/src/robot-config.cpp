@@ -31,7 +31,7 @@ distance LLidar = distance(PORT2);
 distance FLidar = distance(PORT9);
 distance BLidar = distance(PORT7);
 
-inertial Inert = inertial(PORT17);
+inertial Inert = inertial(PORT16);
 
 void vexcodeInit( void ) {
   // nothing to initialize
